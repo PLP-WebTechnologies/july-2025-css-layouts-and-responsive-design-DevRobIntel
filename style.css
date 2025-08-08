@@ -1,0 +1,127 @@
+/* Base styles and layout reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #222;
+  background-color: #f9f9f9;
+  padding: 1rem;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #004080;
+  color: white;
+}
+
+/* NAVIGATION - Flexbox layout */
+.nav-flex {
+  display: flex;
+  justify-content: center;
+  background-color: #0066cc;
+  gap: 1.5rem;
+  padding: 0.75rem 0;
+  flex-wrap: wrap;
+}
+
+.nav-flex a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-flex a:hover {
+  background-color: #004080;
+}
+
+/* MAIN GRID LAYOUT */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /* content 75%, sidebar 25% */
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+/* CONTENT AREA */
+.content-area {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* CARDS - Flexbox inside content area */
+.cards-flex {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #e6f0ff;
+  padding: 1rem;
+  flex: 1 1 200px; /* flexible cards, minimum width 200px */
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: #004080;
+  color: white;
+  border-radius: 0 0 8px 8px;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Tablet: stack main grid into one column */
+@media (max-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-flex {
+    justify-content: center;
+  }
+}
+
+/* Mobile: adjust navigation and content layout */
+@media (max-width: 600px) {
+  .nav-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-flex a {
+    padding: 0.75rem 1.5rem;
+  }
+
+  body {
+    padding: 0.5rem;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}
